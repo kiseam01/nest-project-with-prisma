@@ -39,7 +39,6 @@ async sendOtp(email: string, otp: string, subject: string) {
           
           <tr>
             <td style="padding:40px 40px 20px; text-align:left;">
-              <div style="width:40px; height:40px; background:#4f46e5; border-radius:10px; margin-bottom:24px;"></div>
               <h1 style="margin:0; color:#1e293b; font-size:24px; font-weight:700; letter-spacing:-0.02em;">
                 Verify your identity
               </h1>
@@ -82,26 +81,12 @@ async sendOtp(email: string, otp: string, subject: string) {
           <tr>
             <td style="background-color:#f8fafc; padding:24px 40px; text-align:center;">
               <p style="margin:0; color:#94a3b8; font-size:12px; font-weight:500;">
-                © ${new Date().getFullYear()} Your Brand Inc.
-              </p>
-              <p style="margin:4px 0 0; color:#cbd5e1; font-size:11px;">
-                123 Business Ave, Suite 100, San Francisco, CA
+                © ${new Date().getFullYear()} Inc.
               </p>
             </td>
           </tr>
 
         </table>
-        
-        <table width="100%" cellpadding="0" cellspacing="0" style="max-width:500px; margin-top:20px;">
-          <tr>
-            <td style="text-align:center;">
-              <a href="#" style="color:#94a3b8; text-decoration:underline; font-size:12px;">Help Center</a>
-              <span style="color:#cbd5e1; margin:0 8px;">•</span>
-              <a href="#" style="color:#94a3b8; text-decoration:underline; font-size:12px;">Privacy Policy</a>
-            </td>
-          </tr>
-        </table>
-
       </td>
     </tr>
   </table>
