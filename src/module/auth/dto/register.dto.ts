@@ -3,12 +3,12 @@ import { IsEmail, IsNotEmpty, IsOptional, IsString, MinLength } from 'class-vali
 import { UserRole } from '@prisma/client';
 
 export class RegisterDto {
-  @ApiProperty({ example: 'Rana' })
+  @ApiProperty({ example: 'Seam' })
   @IsString()
   @IsNotEmpty()
   name!: string;
 
-  @ApiProperty({ example: 'rana@example.com' })
+  @ApiProperty({ example: 'seam@example.com' })
   @IsEmail()
   email!: string;
 
