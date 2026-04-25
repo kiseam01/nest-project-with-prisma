@@ -1,0 +1,25 @@
+enum FileType {
+  IMAGE
+  DOCS
+  LINK
+  DOCUMENT
+  VIDEO
+  AUDIO
+  ANY
+}
+
+model FileInstance {
+  id               String   @id @default(uuid()) @db.Uuid
+  filename         String
+  originalFilename String
+  url              String
+  publicId         String?
+  mimeType         String
+  size             Int
+  fileType         FileType @default(ANY)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("file_instances")
+}
