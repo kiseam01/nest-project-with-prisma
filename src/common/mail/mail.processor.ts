@@ -25,9 +25,9 @@ export class MailProcessor extends WorkerHost {
   async process(job: Job<any, any, string>): Promise<any> {
     switch (job.name) {
       case 'send-otp': {
-        const { email, otp, subject } = job.data;
+        const { email, otp, subject, from } = job.data;
         try {
-          await this.sendOtpEmail(email, otp, subject);
+          await this.sendOtpEmail(email, otp, subject, from);
           this.logger.log(`Successfully sent OTP email to ${email}`);
         } catch (error) {
           this.logger.error(`Failed to send OTP email to ${email}`, error.stack);
@@ -38,9 +38,9 @@ export class MailProcessor extends WorkerHost {
     }
   }
 
-  private async sendOtpEmail(email: string, otp: string, subject: string) {
+  private async sendOtpEmail(email: string, otp: string, subject: string, from?: string) {
     await this.transporter.sendMail({
-      from: this.config.get<string>('MAIL_FROM'),
+      from: from,
       to: email,
       subject,
       html: `<!DOCTYPE html>

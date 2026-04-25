@@ -22,34 +22,34 @@ import { FileUploadModule } from './common/file-upload/file-upload.module';
         MAIL_PORT: Joi.number().required(),
         MAIL_USER: Joi.string().required(),
         MAIL_PASS: Joi.string().required(),
-        MAIL_FROM: Joi.string().required(),
-        REDIS_HOST: Joi.string().default('localhost'),
-        REDIS_PORT: Joi.number().default(6379),
+        // MAIL_FROM: Joi.string().required(),
+        // REDIS_HOST: Joi.string().default('localhost'),
+        // REDIS_PORT: Joi.number().default(6379),
       }),
     }),
-    ThrottlerModule.forRoot([{
-      ttl: 60000,
-      limit: 100,
-    }]),
-    BullModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        connection: {
-          host: configService.get<string>('REDIS_HOST'),
-          port: configService.get<number>('REDIS_PORT'),
-        },
-      }),
-    }),
+    // ThrottlerModule.forRoot([{
+    //   ttl: 60000,
+    //   limit: 100,
+    // }]),
+    // BullModule.forRootAsync({
+    //   inject: [ConfigService],
+    //   useFactory: (configService: ConfigService) => ({
+    //     connection: {
+    //       host: configService.get<string>('REDIS_HOST'),
+    //       port: configService.get<number>('REDIS_PORT'),
+    //     },
+    //   }),
+    // }),
     PrismaModule,
     MailModule,
     AuthModule,
     FileUploadModule,
   ],
   providers: [
-    {
-      provide: APP_GUARD,
-      useClass: ThrottlerGuard,
-    },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: ThrottlerGuard,
+    // },
   ],
 })
 export class AppModule {}
